@@ -4,6 +4,11 @@ Wire Frame:
 Link to Whimsical: https://whimsical.com/slot-machine-3ni8sd4MxryPkw3zKyCD4N 
 
 Pseudocode:
+Link to Google Doc (May be Easier to Read): 
+https://docs.google.com/document/d/1jk0KVBJTgBcEUXJVMCcF9Qd3EeM1F0o22SO2VOLtuo8/edit
+
+or....
+
 HTML and CSS:
 
 1)Set up structure and include all elements in HTML
