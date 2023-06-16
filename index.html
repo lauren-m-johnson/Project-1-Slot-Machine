@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine Game</title>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>Slot Machine</header>
+
+    <h1>PLACE YOUR BET!</h1>
+
+    <div id="slot-container">
+
+        <img id="choice1" class="fruit-image" src="/images/Cherries.png" alt="Cherries image">
+        <img id="choice2" class="fruit-image" src="/images/Lemon.png" alt="Lemon image">
+        <img id="choice3" class="fruit-image" src="/images/Seven.png" alt="Lucky Number 7 image">
+   
+    </div>
+
+    <div id="console-container">
+
+        <div id="bank-container">
+            <h2>$100</h2>
+            <h2>BANK</h2>
+        </div>
+
+        <div id="bet-container">
+            <h2>$000</h2>
+            <h2>BET</h2>
+        </div>
+
+        <button class="place-bet" id="standard-button">PLACE BET</button>
+
+        <button class="play-again" id="standard-button">PLAY AGAIN</button>
+
+        <div id="coin-container">
+            <button><img class="coin-image" src="/images/Coin.png" alt="Coin image"></button>
+            <h2>+$10</h2>
+        </div>
+    </div>
+
+</body>
+</html>
