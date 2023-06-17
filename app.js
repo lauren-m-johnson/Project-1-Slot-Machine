@@ -74,7 +74,12 @@ function renderBank() {
 }
 
 function getWinner() {
-
+    if (slotMachine === winningCOMBOS[0] || slotMachine === winningCOMBOS[1] || slotMachine === winningCOMBOS[2] || slotMachine === winningCOMBOS[3]) {
+        win = true;
+    } else {
+        win = false;
+    }
+    renderMessage();
 }
 
 function render() {
@@ -83,3 +88,5 @@ function render() {
     renderBet();
     renderBank();
 }
+
+render();
