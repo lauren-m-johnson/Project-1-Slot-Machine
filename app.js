@@ -14,7 +14,7 @@ const winningCOMBOS = [
 ]
 
 /*----- state variables -----*/
-let slotMachine;
+let slotMachine; //array for each slot result
 let bank;
 let bet;
 
@@ -33,5 +33,16 @@ bet = document.getElementById('bet-amount');
 init();
 
 function init() {
+    slotMachine = {
+        slot1: 0,
+        slot2: 1,
+        slot3: 2
+    };
+    bank = '$100';
+    bet = '$0';
+    render();
+}
+
+function render() {
     
 }
