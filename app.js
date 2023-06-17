@@ -1,16 +1,16 @@
 /*----- constants -----*/
 const FRUITS = {
-    seven : {img: 'images/Seven.png', value: '0'},
-    cherries : {img: 'images/Cherries.png', value: '1'},
-    lemon : {img: 'images/Lemon.png', value: '2'},
-    watermelon : {img: 'images/Watermelon.png', value: '3'},
+    seven : 'images/Seven.png',
+    cherries: 'images/Cherries.png',
+    lemon : 'images/Lemon.png',
+    watermelon : 'images/Watermelon.png'
 }
 
 const winningCOMBOS = [
-    [0, 0, 0],
-    [1, 1, 1],
-    [2, 2, 2],
-    [3, 3, 3]
+    ['seven', 'seven', 'seven'],
+    ['cherries', 'cherries', 'cherries'],
+    ['lemon', 'lemon', 'lemon'],
+    ['watermelon', 'watermelon', 'watermelon']
 ]
 
 /*----- state variables -----*/
@@ -19,10 +19,6 @@ let bank;
 let bet;
 
 /*----- cached elements  -----*/
-const slot1 = document.getElementById('slot1');
-const slot2 = document.getElementById('slot2');
-const slot3 = document.getElementById('slot3');
-
 bank = document.getElementById('bank-amount');
 bet = document.getElementById('bet-amount');
 
@@ -34,15 +30,42 @@ init();
 
 function init() {
     slotMachine = {
-        slot1: 0,
-        slot2: 1,
-        slot3: 2
+        slot1: 'seven',
+        slot2: 'cherries',
+        slot3: 'lemon'
     };
     bank = '$100';
     bet = '$0';
     render();
 }
 
+//Display random fruit in each slot of the slot machine
+function renderResults() {
+    const keys = Object.keys(FRUITS);
+    for (let i = 1; i <= 3; i++) {
+        const randomIndex = Math.floor(Math.random() * keys.length);
+        const randomKey = keys[randomIndex];
+        const randomFruit= FRUITS[randomKey];
+        const slot = document.getElementById(`slot${i}`);
+        slot.src = randomFruit;
+    }
+}
+
+function renderMessage() {
+
+}
+
+function renderBet () {
+
+}
+
+function renderBank() {
+
+}
+
 function render() {
-    
+    renderResults();
+    renderMessage();
+    renderBet();
+    renderBank();
 }
