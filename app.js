@@ -14,13 +14,16 @@ const winningCOMBOS = [
 ]
 
 /*----- state variables -----*/
-let slotMachine; //array for each slot result
 let bank;
 let bet;
+let win;
+let slotMachine;
+
 
 /*----- cached elements  -----*/
-bank = document.getElementById('bank-amount');
-bet = document.getElementById('bet-amount');
+const bankAmount = document.getElementById('bank-amount');
+const betAmount = document.getElementById('bet-amount');
+const messageEl = document.querySelector('h1');
 
 /*----- event listeners -----*/
 
@@ -36,6 +39,7 @@ function init() {
     };
     bank = '$100';
     bet = '$0';
+    win = null;
     render();
 }
 
@@ -52,14 +56,24 @@ function renderResults() {
 }
 
 function renderMessage() {
-
+    if (win === null) {
+        return null;
+    } else if (win === true) {
+        messageEl.innerHTML = 'YOU WIN!'
+    } else {
+        messageEl.innerHTML = 'YOU LOSE!'
+    }
 }
 
-function renderBet () {
+function renderBet() {
 
 }
 
 function renderBank() {
+
+}
+
+function getWinner() {
 
 }
 
