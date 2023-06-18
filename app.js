@@ -1,8 +1,8 @@
 /*----- constants -----*/
 const FRUITS = {
-    'seven' : ['images/Seven.png'],
-    'cherries': ['images/Cherries.png'],
-    'lemon' : ['images/Lemon.png']
+    'seven' : 'images/Seven.png',
+    'cherries': 'images/Cherries.png',
+    'lemon' : 'images/Lemon.png'
 }
 
 const winningCOMBOS = [
@@ -93,25 +93,28 @@ function renderBank() {
     }
 }
 
-//NOT FULL WORKING, WON'T RECOGNIZE WINNER
-//Determines if "spin" was a win or not
+//Determines if "place bet" was a win or not
 function getWinner() {
     for (combo of winningCOMBOS) {
-    if (
-        slotMachine === winningCOMBOS[0] ||
-        slotMachine === winningCOMBOS[1] ||
-        slotMachine === winningCOMBOS[2]
+      const [slot1, slot2, slot3] = combo;
+      if (
+        slotMachine[0] === slot1 &&
+        slotMachine[1] === slot2 &&
+        slotMachine[2] === slot3
       ) {
-        return win = true; 
-      }
+        win = true;
     }
-    return win = false; 
+  }
+  if (!win) {
+    win = false; 
+  }
+  return win;
 }
 
 //Start the game by clicking the 'Place Bet' Button
 function startPlay() {
-    getWinner();
     renderResults();
+    getWinner();
     renderMessage();
 }
 
