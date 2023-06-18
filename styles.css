@@ -78,13 +78,6 @@ button {
     grid-area: bet;
 }
 
-#standard-button {
-    height: 8vmin;
-    width: 15vmin;
-    background-color: red;
-    border-radius: 10px;
-}
-
 #coin-container {
     grid-area: coin;
     display: flex;
@@ -92,14 +85,22 @@ button {
     align-items: center;
 }
 
-.place-bet {
+#place-bet {
     grid-area: placebet;
 }
 
-.play-again {
+#play-again {
     grid-area: playagain;
     visibility: hidden;
 }
+
+.standard-button {
+    height: 8vmin;
+    width: 15vmin;
+    background-color: red;
+    border-radius: 10px;
+}
+
 .fruit-image {
     height: 20vmin;
     margin: 2vmin;

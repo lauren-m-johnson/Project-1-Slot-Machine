@@ -24,9 +24,11 @@ let slotMachine;
 const bankAmount = document.getElementById('bank-amount');
 const betAmount = document.getElementById('bet-amount');
 const messageEl = document.querySelector('h1');
+const placeBet = document.getElementById('place-bet');
+const coinButton = document.getElementById('coin-button');
 
 /*----- event listeners -----*/
-
+coinButton.addEventListener('click', renderBet)
 
 /*----- functions -----*/
 init();
@@ -37,8 +39,8 @@ function init() {
         slot2: 'cherries',
         slot3: 'lemon'
     };
-    bank = '$100';
-    bet = '$0';
+    bank = 0;
+    bet = 0;
     win = null;
     render();
 }
@@ -55,6 +57,7 @@ function renderResults() {
     }
 }
 
+//Display message for winning and losing
 function renderMessage() {
     if (win === null) {
         return null;
@@ -65,14 +68,19 @@ function renderMessage() {
     }
 }
 
+//Adds bet to the bet container
 function renderBet() {
-
+    bet += 10;
+    betAmount.textContent = '$' + bet;
 }
 
+//Adds or takes away bet from bank
 function renderBank() {
 
 }
 
+//NOT FULL WORKING, NEED TO MESS WITH
+//Determines if "spin" was a win or not
 function getWinner() {
     if (slotMachine === winningCOMBOS[0] || slotMachine === winningCOMBOS[1] || slotMachine === winningCOMBOS[2] || slotMachine === winningCOMBOS[3]) {
         win = true;
@@ -87,6 +95,7 @@ function render() {
     renderMessage();
     renderBet();
     renderBank();
+    getWinner();
 }
 
 render();
