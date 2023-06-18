@@ -29,6 +29,7 @@ const coinButton = document.getElementById('coin-button');
 
 /*----- event listeners -----*/
 coinButton.addEventListener('click', renderBet)
+placeBet.addEventListener('click', startPlay);
 
 /*----- functions -----*/
 init();
@@ -57,6 +58,7 @@ function renderResults() {
     }
 }
 
+//WHY IS THIS SHOWING YOU LOSE WHEN INITIALIZED AND NOT RECOGNIZING WINNER?
 //Display message for winning and losing
 function renderMessage() {
     if (win === null) {
@@ -76,7 +78,7 @@ function renderBet() {
 
 //Adds or takes away bet from bank
 function renderBank() {
-
+    
 }
 
 //NOT FULL WORKING, NEED TO MESS WITH
@@ -87,15 +89,17 @@ function getWinner() {
     } else {
         win = false;
     }
+}
+
+function startPlay() {
+    getWinner();
+    renderResults();
     renderMessage();
 }
 
 function render() {
-    renderResults();
-    renderMessage();
     renderBet();
     renderBank();
-    getWinner();
 }
 
 render();
