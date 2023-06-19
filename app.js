@@ -23,29 +23,47 @@ const betAmount = document.getElementById('bet-amount');
 const messageEl = document.querySelector('h1');
 const placeBet = document.getElementById('place-bet');
 const coinButton = document.getElementById('coin-button');
-
+const hiddenButton = document.getElementById('play-again');
 
 /*----- event listeners -----*/
 coinButton.addEventListener('click', renderBet)
 placeBet.addEventListener('click', startPlay);
+hiddenButton.addEventListener('click', resetGame);
 
 /*----- functions -----*/
 init();
 
 function init() {
     slotMachine = [];
-    bank = 0;
-    bet = 0;
+    bank = 100;
+    bet = 0; //temporary fix. Can't figure out why bet was starting at $20
     win = null;
     render();
 }
 
+//WHY IS THIS STARTING AT $20?
+//Adds bet to the bet container
+function renderBet() {
+    bet += 10;
+    betAmount.innerText = '$' + bet;
+}
+
+//Start the game by clicking the 'Place Bet' Button
+function startPlay() {
+    renderResults();
+    getWinner();
+    renderMessage();
+    renderBank();
+    handleEmptyBank()
+}
+
+//When someone clicks the "place bet button"....
 //Display random fruit in each slot of the slot machine
 function renderResults() {
     // Get the keys of the FRUITS object and store them in an array
     const keys = Object.keys(FRUITS);
     // Generate a random index for each slot's index
-    const slot1Index = Math.floor(Math.random() * keys.length);
+    let slot1Index = Math.floor(Math.random() * keys.length);
     let slot2Index = Math.floor(Math.random() * keys.length);
     let slot3Index = Math.floor(Math.random() * keys.length);
     // Get the key from the keys array using the index for each slot
@@ -63,11 +81,8 @@ function renderResults() {
 
     //Update the slot machine's array to the names of the keys:
     slotMachine = [slot1Key, slot2Key, slot3Key];
-    console.log(slotMachine);
   }
 
-
-//PRETTY SURE THIS IS WORKING AND ISSUE IS IN getWinner();
 //Display message for winning and losing
 function renderMessage() {
     if (win === null) {
@@ -79,20 +94,8 @@ function renderMessage() {
     }
 }
 
-//Adds bet to the bet container
-function renderBet() {
-    bet += 10;
-    betAmount.textContent = '$' + bet;
-}
 
-//Adds or takes away bet from bank
-function renderBank() {
-    if (win === true) {
-        bank += bet;
-        bankAmount.textContent = '$' + bank;
-    }
-}
-
+//WHEN THERE IS A WIN, ALL NEXT SPINS ARE WIN??? HOW TO STOP THIS?
 //Determines if "place bet" was a win or not
 function getWinner() {
     for (combo of winningCOMBOS) {
@@ -103,24 +106,45 @@ function getWinner() {
         slotMachine[2] === slot3
       ) {
         win = true;
+      }
+    } 
+    if (!win) {
+      win = false; 
     }
-  }
-  if (!win) {
-    win = false; 
-  }
-  return win;
+    //return win; Is this extra? seems to be working without it
 }
 
-//Start the game by clicking the 'Place Bet' Button
-function startPlay() {
-    renderResults();
-    getWinner();
-    renderMessage();
+//Adds double the bet or takes away bet from bank
+function renderBank() {
+    if (win === true) {
+        bet *= 2;
+        bank += bet;
+    } else if (win === false) {
+        bank -= bet;
+    } else {
+        return bank;
+    }
+    bankAmount.innerText = '$' + bank;
+    console.log(bank)
 }
+
+//Handles if the bank is empty and forces user to start over.
+function handleEmptyBank() {
+    if (bank === 0) {
+        messageEl.innerHTML = 'GAME OVER! PLAY AGAIN?';
+        hiddenButton.style.visibility = 'visible';
+    }
+}
+
+function resetGame() {
+    messageEl.innerHTML = 'PLACE YOUR BET!';
+    init();
+    bank = 100;
+}
+
 
 function render() {
     renderBet();
-    renderBank();
 }
 
-render();
+//render();

@@ -111,7 +111,7 @@ button {
     height: 13vmin;
 }
 
-#standard-button:hover {
+.standard-button:hover {
     background-color: rgba(255, 0, 0, 0.373);
 }
 
