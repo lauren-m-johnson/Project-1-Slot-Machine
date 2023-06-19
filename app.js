@@ -2,13 +2,13 @@
 const FRUITS = {
     'seven' : 'images/Seven.png',
     'cherries': 'images/Cherries.png',
-    'lemon' : 'images/Lemon.png'
+    'watermelon' : 'images/Watermelon.png'
 }
 
 const winningCOMBOS = [
     ['seven', 'seven', 'seven'],
     ['cherries', 'cherries', 'cherries'],
-    ['lemon', 'lemon', 'lemon']
+    ['watermelon', 'watermelon', 'watermelon']
 ]
 
 /*----- state variables -----*/
