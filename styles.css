@@ -37,6 +37,10 @@ button {
     font-size: 3vmin;
 }
 
+button:hover {
+    opacity: 0.5;
+}
+
 #console-container {
     display: grid;
     grid-template-areas: 
@@ -109,12 +113,4 @@ button {
 
 .coin-image {
     height: 13vmin;
-}
-
-.standard-button:hover {
-    background-color: rgba(255, 0, 0, 0.373);
-}
-
-.coin-image:hover {
-  opacity: 0.5;  
 }

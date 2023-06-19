@@ -97,6 +97,7 @@ function renderMessage() {
 //WHEN THERE IS A WIN, ALL NEXT SPINS ARE WIN??? HOW TO STOP THIS?
 //Determines if "place bet" was a win or not
 function getWinner() {
+    win = null;
     for (combo of winningCOMBOS) {
       const [slot1, slot2, slot3] = combo;
       if (
@@ -105,12 +106,13 @@ function getWinner() {
         slotMachine[2] === slot3
       ) {
         win = true;
+        break;
       }
     } 
     if (!win) {
       win = false; 
     }
-    //return win; Is this extra? seems to be working without it
+    return win;
 }
 
 //Adds double the bet or takes away bet from bank
@@ -129,17 +131,16 @@ function renderBank() {
 
 //Handles if the bank is empty and forces user to start over.
 function handleEmptyBank() {
-    if (bank === 0) {
+    if (bank <= 0) {
         messageEl.innerHTML = 'GAME OVER! PLAY AGAIN?';
         hiddenButton.style.visibility = 'visible';
     }
 }
 
+//Resets game when bank is empty
 function resetGame() {
+    init();
     messageEl.innerHTML = 'PLACE YOUR BET!';
-    bank = 100;
-    bet = 0;
-    win = null;
     hiddenButton.style.visibility = 'hidden';
     bankAmount.innerText = '$' + bank;
     render();
