@@ -38,7 +38,6 @@ function init() {
     bank = 100;
     bet = 0; //temporary fix. Can't figure out why bet was starting at $20
     win = null;
-    render();
 }
 
 //WHY IS THIS STARTING AT $20?
@@ -138,8 +137,12 @@ function handleEmptyBank() {
 
 function resetGame() {
     messageEl.innerHTML = 'PLACE YOUR BET!';
-    init();
     bank = 100;
+    bet = 0;
+    win = null;
+    hiddenButton.style.visibility = 'hidden';
+    bankAmount.innerText = '$' + bank;
+    render();
 }
 
 
@@ -147,4 +150,4 @@ function render() {
     renderBet();
 }
 
-//render();
+render();
