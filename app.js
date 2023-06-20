@@ -59,9 +59,11 @@ function startPlay() {
 //When someone clicks the "place bet button"....
 //Display random fruit in each slot of the slot machine
 function renderResults() {
-    // Get the keys of the FRUITS object and store them in an array
+    // Get the keys of the FRUITS object and store them in an array.
+    //Support from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
     const keys = Object.keys(FRUITS);
     // Generate a random index for each slot's index
+    //Support from https://stackoverflow.com/questions/2532218/pick-random-property-from-a-javascript-object
     let slot1Index = Math.floor(Math.random() * keys.length);
     let slot2Index = Math.floor(Math.random() * keys.length);
     let slot3Index = Math.floor(Math.random() * keys.length);
@@ -74,6 +76,7 @@ function renderResults() {
     const slot2 = document.getElementById('slot2');
     const slot3 = document.getElementById('slot3');
    // Set the source src attribute of each slot's image to the corresponding fruit image
+   //Support from https://www.w3schools.com/jsref/prop_img_src.asp 
     slot1.src = FRUITS[slot1Key];
     slot2.src = FRUITS[slot2Key];
     slot3.src = FRUITS[slot3Key];
@@ -93,9 +96,8 @@ function renderMessage() {
     }
 }
 
-
-//WHEN THERE IS A WIN, ALL NEXT SPINS ARE WIN??? HOW TO STOP THIS?
 //Determines if "place bet" was a win or not
+//Inspired by https://stackoverflow.com/questions/55663642/slot-machine-code-not-working-yet-has-no-error-message
 function getWinner() {
     win = null;
     for (combo of winningCOMBOS) {
