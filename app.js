@@ -18,6 +18,7 @@ let bet;
 let win;
 let slotMachine;
 
+
 /*----- cached elements  -----*/
 const bankAmount = document.getElementById('bank-amount');
 const betAmount = document.getElementById('bet-amount');
@@ -28,8 +29,8 @@ const hiddenButton = document.getElementById('play-again');
 
 const coinAudio = new Audio('sounds/coin.mp3'); 
 const buttonAudio = new Audio('sounds/plasticbutton.mp3');
-    // jackpot: 'sounds/jackpot.mp3',
-    // spin: 'sounds/spin.mp3'
+const backgroundMusic = document.querySelector('input[type="checkbox"]');
+const audioPlayer = document.getElementById('audio-player');
 
 /*----- event listeners -----*/
 coinButton.addEventListener('click', renderBet)
@@ -45,22 +46,25 @@ placeBet.addEventListener('click', function() {
 hiddenButton.addEventListener('click', function() {
     buttonAudio.play();
 });
+backgroundMusic.addEventListener('change', handleBackgroundAudio);
+
 /*----- functions -----*/
 init();
 
 function init() {
     slotMachine = [];
     bank = 100;
-    bet = 0; //temporary fix. Can't figure out why bet was starting at $20
+    bet = 0; 
     win = null;
 }
 
-//WHY IS THIS STARTING AT $20?
+
 //Adds bet to the bet container
 function renderBet() {
     bet += 10;
     betAmount.innerText = '$' + bet;
 }
+
 
 //Start the game by clicking the 'Place Bet' Button
 function startPlay() {
@@ -70,6 +74,7 @@ function startPlay() {
     renderBank();
     handleEmptyBank()
 }
+
 
 //When someone clicks the "place bet button"....
 //Display random fruit in each slot of the slot machine
@@ -100,6 +105,7 @@ function renderResults() {
     slotMachine = [slot1Key, slot2Key, slot3Key];
   }
 
+
 //Display message for winning and losing
 function renderMessage() {
     if (win === null) {
@@ -112,6 +118,7 @@ function renderMessage() {
         playLoseSound();
     }
 }
+
 
 //Determines if "place bet" was a win or not
 //Inspired by https://stackoverflow.com/questions/55663642/slot-machine-code-not-working-yet-has-no-error-message
@@ -134,6 +141,7 @@ function getWinner() {
     return win;
 }
 
+
 //Adds double the bet or takes away bet from bank
 function renderBank() {
     if (win === true) {
@@ -148,6 +156,7 @@ function renderBank() {
     console.log(bank)
 }
 
+
 //Handles if the bank is empty and forces user to start over.
 function handleEmptyBank() {
     if (bank <= 0) {
@@ -156,6 +165,7 @@ function handleEmptyBank() {
         gameOverSound();
     }
 }
+
 
 //Resets game when bank is empty
 function resetGame() {
@@ -166,20 +176,28 @@ function resetGame() {
     render();
 }
 
+//Sound Functions:
 function playWinSound() {
     const audio = new Audio('sounds/jackpot.mp3');
     audio.play();
 }
+
 
 function playLoseSound() {
     const audio = new Audio('sounds/lose.mp3');
     audio.play();
 }
 
+
 function gameOverSound() {
     const audio = new Audio('sounds/gameover.mp3');
     audio.play();
 }
+
+function handleBackgroundAudio() {
+    backgroundMusic.checked ? audioPlayer.play() : audioPlayer.pause();
+    audioPlayer.volume = .1;
+  }
 
 function render() {
     renderBet();
