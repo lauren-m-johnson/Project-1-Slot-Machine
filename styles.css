@@ -108,6 +108,10 @@ footer {
     visibility: hidden;
 }
 
+#audio-button {
+    height: 1vmin;
+}
+
 .standard-button {
     height: 8vmin;
     width: 15vmin;

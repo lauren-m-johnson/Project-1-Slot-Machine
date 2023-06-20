@@ -29,13 +29,14 @@ const hiddenButton = document.getElementById('play-again');
 
 const coinAudio = new Audio('sounds/coin.mp3'); 
 const buttonAudio = new Audio('sounds/plasticbutton.mp3');
-const backgroundMusic = document.querySelector('input[type="checkbox"]');
+const backgroundMusic = document.getElementById('audio-button');
 const audioPlayer = document.getElementById('audio-player');
 
 /*----- event listeners -----*/
 coinButton.addEventListener('click', renderBet)
 placeBet.addEventListener('click', startPlay);
 hiddenButton.addEventListener('click', resetGame);
+    
     //Sound event listeners
 coinButton.addEventListener('click', function() {
     coinAudio.play();
@@ -46,7 +47,7 @@ placeBet.addEventListener('click', function() {
 hiddenButton.addEventListener('click', function() {
     buttonAudio.play();
 });
-backgroundMusic.addEventListener('change', handleBackgroundAudio);
+backgroundMusic.addEventListener('click', handleBackgroundAudio);
 
 /*----- functions -----*/
 init();
@@ -176,7 +177,7 @@ function resetGame() {
     render();
 }
 
-//Sound Functions:
+//Sound Functions: CAN I COMBINE THESE FUNCTIONS?
 function playWinSound() {
     const audio = new Audio('sounds/jackpot.mp3');
     audio.play();
@@ -195,8 +196,16 @@ function gameOverSound() {
 }
 
 function handleBackgroundAudio() {
-    backgroundMusic.checked ? audioPlayer.play() : audioPlayer.pause();
-    audioPlayer.volume = .1;
+    audioPlayer.paused ? playAudio() : pauseAudio();
+  }
+
+function playAudio() {
+    audioPlayer.play();
+    audioPlayer.volume = 0.1;
+    }
+
+function pauseAudio() {
+    audioPlayer.pause();
   }
 
 function render() {
