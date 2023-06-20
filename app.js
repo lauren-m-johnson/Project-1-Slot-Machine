@@ -11,6 +11,13 @@ const winningCOMBOS = [
     ['watermelon', 'watermelon', 'watermelon']
 ]
 
+const SOUNDS = {
+    coin: 'sounds/coin.mp3',
+    jackpot: 'sounds/jackpot.mp3',
+    button: 'sounds/plasticbutton.mp3',
+    spin: 'sounds/spin.mp3'
+}
+
 /*----- state variables -----*/
 let bank;
 let bet;
@@ -18,6 +25,7 @@ let win;
 let slotMachine;
 
 /*----- cached elements  -----*/
+const soundPlayer = new Audio();
 const bankAmount = document.getElementById('bank-amount');
 const betAmount = document.getElementById('bet-amount');
 const messageEl = document.querySelector('h1');
@@ -29,6 +37,8 @@ const hiddenButton = document.getElementById('play-again');
 coinButton.addEventListener('click', renderBet)
 placeBet.addEventListener('click', startPlay);
 hiddenButton.addEventListener('click', resetGame);
+//Sound event listeners
+coinButton.addEventListener('click', playSound);
 
 /*----- functions -----*/
 init();
@@ -148,6 +158,11 @@ function resetGame() {
     render();
 }
 
+//Plays sounds
+function playSound(name) {
+    soundPlayer.src = SOUNDS[name];
+    soundPlayer.play();
+}
 
 function render() {
     renderBet();
