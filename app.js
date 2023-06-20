@@ -20,38 +20,28 @@ let slotMachine;
 
 
 /*----- cached elements  -----*/
+//Game Play
 const bankAmount = document.getElementById('bank-amount');
 const betAmount = document.getElementById('bet-amount');
 const messageEl = document.querySelector('h1');
 const placeBet = document.getElementById('place-bet');
 const coinButton = document.getElementById('coin-button');
 const hiddenButton = document.getElementById('play-again');
-
-const buttonAudio = new Audio('sounds/plasticbutton.mp3');
+//Audio
 const backgroundMusic = document.getElementById('audio-button');
 const audioPlayer = document.getElementById('audio-player');
 
 /*----- event listeners -----*/
+//Game Play
 coinButton.addEventListener('click', renderBet)
 placeBet.addEventListener('click', startPlay);
 hiddenButton.addEventListener('click', resetGame);
-    
-    //Sound event listeners
-coinButton.addEventListener('click', function() {
-    const coinAudio = new Audio('sounds/coin.mp3'); 
-    coinAudio.play();
-});
-//CAN THESE FUNCTIONS BE TURNED INTO ONE? THEY ARE SO SIMILAR.
-placeBet.addEventListener('click', function() {
-    buttonAudio.play();
-});
-hiddenButton.addEventListener('click', function() {
-    buttonAudio.play();
-});
-backgroundMusic.addEventListener('click', function() {
-    buttonAudio.play();
-});
+//Audio    
+placeBet.addEventListener('click', buttonSound); 
+hiddenButton.addEventListener('click', buttonSound);
+backgroundMusic.addEventListener('click', buttonSound);
 backgroundMusic.addEventListener('click', handleBackgroundAudio);
+coinButton.addEventListener('click', coinSound);
 
 /*----- functions -----*/
 init();
@@ -117,10 +107,10 @@ function renderMessage() {
         return null;
     } else if (win === true) {
         messageEl.innerHTML = 'YOU WIN!'
-        playWinSound();
+        playSound('sounds/jackpot.mp3');
     } else {
         messageEl.innerHTML = 'YOU LOSE!'
-        playLoseSound();
+        playSound('sounds/lose.mp3');
     }
 }
 
@@ -167,7 +157,7 @@ function handleEmptyBank() {
     if (bank <= 0) {
         messageEl.innerHTML = 'GAME OVER! PLAY AGAIN?';
         hiddenButton.style.visibility = 'visible';
-        gameOverSound();
+        playSound('sounds/gameover.mp3');
     }
 }
 
@@ -182,26 +172,20 @@ function resetGame() {
 }
 
 //Sound Functions:
-function playWinSound() {
-    const audio = new Audio('sounds/jackpot.mp3');
-    audio.play();
+function playSound(sound) {
+    const newAudio = new Audio(sound);
+    newAudio.play();
 }
 
-
-function playLoseSound() {
-    const audio = new Audio('sounds/lose.mp3');
-    audio.play();
+function coinSound() {
+    const coinAudio = new Audio('sounds/coin.mp3'); 
+    coinAudio.play();
 }
 
-
-function gameOverSound() {
-    const audio = new Audio('sounds/gameover.mp3');
-    audio.play();
+function buttonSound() {
+    const buttonAudio = new Audio('sounds/plasticbutton.mp3');
+    buttonAudio.play();
 }
-
-// function buttonSound() {
-//     buttonAudio.play();
-// }
 
 function handleBackgroundAudio() {
     const audioIcon = document.getElementById('audio-icon')
