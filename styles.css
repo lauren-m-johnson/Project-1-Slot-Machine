@@ -41,6 +41,16 @@ button:hover {
     opacity: 0.5;
 }
 
+footer {
+    margin-top: 5vmin;
+    margin-bottom: 3vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+}
+
 #console-container {
     display: grid;
     grid-template-areas: 
