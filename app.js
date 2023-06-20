@@ -27,7 +27,6 @@ const placeBet = document.getElementById('place-bet');
 const coinButton = document.getElementById('coin-button');
 const hiddenButton = document.getElementById('play-again');
 
-const coinAudio = new Audio('sounds/coin.mp3'); 
 const buttonAudio = new Audio('sounds/plasticbutton.mp3');
 const backgroundMusic = document.getElementById('audio-button');
 const audioPlayer = document.getElementById('audio-player');
@@ -39,12 +38,17 @@ hiddenButton.addEventListener('click', resetGame);
     
     //Sound event listeners
 coinButton.addEventListener('click', function() {
+    const coinAudio = new Audio('sounds/coin.mp3'); 
     coinAudio.play();
 });
+//CAN THESE FUNCTIONS BE TURNED INTO ONE? THEY ARE SO SIMILAR.
 placeBet.addEventListener('click', function() {
     buttonAudio.play();
 });
 hiddenButton.addEventListener('click', function() {
+    buttonAudio.play();
+});
+backgroundMusic.addEventListener('click', function() {
     buttonAudio.play();
 });
 backgroundMusic.addEventListener('click', handleBackgroundAudio);
@@ -177,7 +181,7 @@ function resetGame() {
     render();
 }
 
-//Sound Functions: CAN I COMBINE THESE FUNCTIONS?
+//Sound Functions:
 function playWinSound() {
     const audio = new Audio('sounds/jackpot.mp3');
     audio.play();
@@ -195,8 +199,19 @@ function gameOverSound() {
     audio.play();
 }
 
+// function buttonSound() {
+//     buttonAudio.play();
+// }
+
 function handleBackgroundAudio() {
-    audioPlayer.paused ? playAudio() : pauseAudio();
+    const audioIcon = document.getElementById('audio-icon')
+    if (audioPlayer.paused) {
+        playAudio();
+        audioIcon.src = 'images/sound-on.png';
+    } else {
+        pauseAudio();
+        audioIcon.src = 'images/no-sound.png';
+    }
   }
 
 function playAudio() {

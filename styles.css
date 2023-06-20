@@ -108,8 +108,12 @@ footer {
     visibility: hidden;
 }
 
-#audio-button {
-    height: 1vmin;
+#audio-icon {
+    height: 5vmin;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 5vmin;
 }
 
 .standard-button {
