@@ -106,8 +106,10 @@ function renderMessage() {
         return null;
     } else if (win === true) {
         messageEl.innerHTML = 'YOU WIN!'
+        playWinSound();
     } else {
         messageEl.innerHTML = 'YOU LOSE!'
+        playLoseSound();
     }
 }
 
@@ -151,6 +153,7 @@ function handleEmptyBank() {
     if (bank <= 0) {
         messageEl.innerHTML = 'GAME OVER! PLAY AGAIN?';
         hiddenButton.style.visibility = 'visible';
+        gameOverSound();
     }
 }
 
@@ -161,6 +164,21 @@ function resetGame() {
     hiddenButton.style.visibility = 'hidden';
     bankAmount.innerText = '$' + bank;
     render();
+}
+
+function playWinSound() {
+    const audio = new Audio('sounds/jackpot.mp3');
+    audio.play();
+}
+
+function playLoseSound() {
+    const audio = new Audio('sounds/lose.mp3');
+    audio.play();
+}
+
+function gameOverSound() {
+    const audio = new Audio('sounds/gameover.mp3');
+    audio.play();
 }
 
 function render() {
