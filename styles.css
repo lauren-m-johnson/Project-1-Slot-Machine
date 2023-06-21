@@ -21,6 +21,7 @@ header {
     font-family: 'Mr Dafoe', cursive;
     font-size: 18vmin;
     color: rgb(10, 180, 169);
+    text-shadow: 10px 10px 15px lightblue;
 }
 
 h1 {
@@ -63,7 +64,7 @@ footer {
 }
 
 #slot-container {
-    border: solid black 3px;
+    border: solid gold 3px;
     margin: 5vmin;
     display: flex;
     justify-content: space-evenly;
@@ -71,7 +72,8 @@ footer {
     background-image: linear-gradient(rgb(233, 191, 21),rgb(248, 248, 218), rgb(235, 194, 29));
     border-radius: 10px;
     box-shadow: 10px 10px 15px lightslategrey;
-    animation: borderSlotTransition 2.5s infinite;
+    animation: borderTransition 2.5s infinite,
+    boxGlow 2.5s infinite;
 }
 
 #bank-container, #bet-container {
@@ -130,8 +132,8 @@ footer {
     background-color: red;
     border-radius: 10px;
     border: red solid 3px;
-    animation: borderTransition 2.5s infinite;
     box-shadow: 10px 10px 15px lightslategrey;
+    animation: borderTransition 2.5s infinite;
 }
 
 .fruit-image {
@@ -155,14 +157,14 @@ footer {
     100% {color: red;}
 }
 
-@keyframes borderTransition {
-    0% {border-color: red;}
-    50% {border-color: rgba(249, 238, 121, 0.854);}
-    100% {border-color: red;}
+@keyframes boxGlow {
+    0% {box-shadow:  0px 0px 20px #fffb00;}
+    50% {box-shadow: 0px 0px 20px rgb(239, 238, 238);}
+    100% {box-shadow: 0px 0px 20px #fffb00;}
 }
 
-@keyframes borderSlotTransition {
-    0% {border-color: goldenrod;}
+@keyframes borderTransition {
+    0% {border-color: gold;}
     50% {border-color: rgba(249, 238, 121, 0.296);}
-    100% {border-color: goldenrod;}
+    100% {border-color: gold;}
 }
