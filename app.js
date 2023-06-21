@@ -98,8 +98,7 @@ function renderResults() {
 
     //Update the slot machine's array to the names of the keys:
     slotMachine = [slot1Key, slot2Key, slot3Key];
-  }
-
+}
 
 //Display message for winning and losing
 function renderMessage() {

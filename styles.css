@@ -28,6 +28,7 @@ h1 {
     font-size: 10vmin;
     color: red;
     animation: colorTransition 5s infinite;
+    text-shadow: 10px 10px 15px lightblue;
 }
 
 h2 {
