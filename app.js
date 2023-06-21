@@ -148,7 +148,8 @@ function renderBank() {
         return bank;
     }
     bankAmount.innerText = '$' + bank;
-    console.log(bank)
+    bet = 10;
+    betAmount.innerText = '$' + bet;
 }
 
 
