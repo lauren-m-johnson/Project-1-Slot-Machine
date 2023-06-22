@@ -56,8 +56,12 @@ function init() {
 
 //Adds bet to the bet container
 function renderBet() {
+    if (bet <= bank - 10) {
     bet += 10;
     betAmount.innerText = '$' + bet;
+    } else {
+        return bet;
+    }
 }
 
 
