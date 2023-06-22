@@ -1,11 +1,20 @@
 # 🎰 Project 1: Slot Machine 🎰
 
+## 📖 Table of Contents
+- [Game Description](#🧩-game-description)
+- [Technologies Used](#👩🏽‍💻-technologies-used)
+- [Code Preview](#🔍-code-preview)
+- [Links](#🔗-links)
+- [Getting Started](#🕹️-getting-started)
+- [Ice Box Features](#🧊-next-steps-and-icebox-items)
+
 ## 🧩 Game Description: 
 
 This browser slot machine game transports you to a world of excitement and the chance to "WIN BIG". With captivating graphics and seamless gameplay, place your bet to align symbols and trigger wins or lose it all. Are you ready to chase your fortune? Play now and spin your way to unimaginable wealth, figuratively of course!
 
-![Screenshot of Slot Machine game when first loaded](images/homescreen.png)
+### Preview:
 
+![Screenshot of Slot Machine game when first loaded](images/homescreen.png)
 
 ## 👩🏽‍💻 Technologies Used:
 
@@ -45,7 +54,13 @@ function renderBank() {
 ### ⌨️ Instructions:
 
 1. Increase your bet by $10 at a time by clicking the coin on the bottom right.
+
+![Screenshot of Raising Bet](images/Coin%20Bet.png)
+
 2. To place your bet and start your gameplay, click the "PLACE BET" button.
+
+![Screenshot of Raising Bet](images/PlaceBet.png)
+
 3. Immeditely see if you've won or lost. If you win, you will win DOUBLE your bet and it will be added to the bank. If you lose, your bet will be subtracted from your bank.
 4. Keep playing until your bank is empty and start again!
 
