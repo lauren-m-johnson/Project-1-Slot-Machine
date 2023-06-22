@@ -62,7 +62,16 @@ function renderBank() {
 ![Screenshot of Raising Bet](images/PlaceBet.png)
 
 3. Immeditely see if you've won or lost. If you win, you will win DOUBLE your bet and it will be added to the bank. If you lose, your bet will be subtracted from your bank.
+
+Loss Example:
+![Screenshot of a loss](images/Lose.png)
+
+Win Example:
+![Screenshot of a win](images/Win.png)
+
 4. Keep playing until your bank is empty and start again!
+
+![Screenshot of Game Over](images/GameOver.png)
 
 ## 🧊 Next Steps and Icebox Items:
 
