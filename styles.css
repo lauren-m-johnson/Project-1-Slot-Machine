@@ -20,15 +20,15 @@ header {
     margin: 2vmin;
     font-family: 'Mr Dafoe', cursive;
     font-size: 18vmin;
-    color: rgb(10, 180, 169);
-    text-shadow: 10px 10px 15px lightblue;
+    color: rgb(141, 241, 224);
+    text-shadow: 10px 10px 15px lightslategray;
 }
 
 h1 {
     font-size: 10vmin;
     color: red;
     animation: colorTransition 5s infinite;
-    text-shadow: 10px 10px 15px lightblue;
+    text-shadow: 10px 10px 15px lightslategray;
 }
 
 h2 {
@@ -72,18 +72,19 @@ footer {
     align-items: center;
     background-image: linear-gradient(rgb(233, 191, 21),rgb(248, 248, 218), rgb(235, 194, 29));
     border-radius: 10px;
-    animation: borderTransition 2.5s infinite,
-    boxGlow 2.5s infinite;
+    animation: borderTransition 2.5s infinite;
+    box-shadow: 5px 5px 15px lightslategrey;
 }
 
 #bank-container, #bet-container {
     border: solid black 3px;
     padding: 3vmin;
-    background-color: rgba(5, 5, 5, 0.859);
+    background-color: rgb(5, 5, 5);
     color: rgb(128, 255, 0);
     border-radius: 10px;
     font-family: 'Electrolize', sans-serif;
     text-shadow: 2px 2px 15px rgb(90, 254, 40);
+    box-shadow: 5px 5px 15px rgb(115, 114, 114) inset;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,8 +119,8 @@ footer {
     height: 5vmin;
     position: fixed;
     top: 0;
-    right: 0;
-    margin: 5vmin;
+    left: 0;
+    margin: 2vmin;
 }
 
 #coin-button {
@@ -150,11 +151,11 @@ footer {
 }
 
 @keyframes colorTransition {
-    0% {color: red;}
+    0% {color: rgb(249, 4, 4);}
     25% {color: gold;}
-    50% {color: red;}
+    50% {color: rgb(226, 3, 3);}
     75% {color: gold;}
-    100% {color: red;}
+    100% {color: rgb(226, 2, 2);}
 }
 
 @keyframes boxGlow {
@@ -165,6 +166,13 @@ footer {
 
 @keyframes borderTransition {
     0% {border-color: gold;}
-    50% {border-color: rgba(249, 238, 121, 0.296);}
+    50% {border-color: rgb(250, 241, 138);}
     100% {border-color: gold;}
 }
+
+@media screen and (max-width: 600px) {
+    .fruit-image {
+        padding: 3vmin;
+        box-shadow: 8px 8px 8px lightslategrey inset;
+    }
+  }
