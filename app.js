@@ -76,7 +76,6 @@ function startPlay() {
 }
 
 
-//When someone clicks the "place bet button"....
 //Display random fruit in each slot of the slot machine
 function renderResults() {
     // Get the keys of the FRUITS object and store them in an array.

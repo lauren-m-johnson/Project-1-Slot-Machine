@@ -1,15 +1,35 @@
-# Project-1-Slot-Machine
-# Project 1:
-# Slot Machine
+# Project 1: Slot Machine
 
 ## Game Description: 
 This browser slot machine game transports you to a world of excitement and the chance to "WIN BIG". With captivating graphics and seamless gameplay, place your bet to align symbols and trigger wins or lose it all. Are you ready to chase your fortune? Play now and spin your way to unimaginable wealth, figuratively of course!
 
+![Screenshot of Slot Machine game when first loaded](images/homescreen.png)
+
+## Technologies Used:
+
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white) 
+JavaScript, HTML, CSS
+
+## Code Preview
+```js
+function renderBank() {
+    if (win === true) {
+        bet *= 2;
+        bank += bet;
+        coinButton.disabled = false;
+    } else if (win === false) {
+        bank -= bet;
+    } else {
+        return bank;
+    }
+    bankAmount.innerText = '$' + bank;
+    bet = 10;
+    betAmount.innerText = '$' + bet;
+}
+```
+## Links
 - [Link to Slot Wire Frame](https://whimsical.com/slot-machine-3ni8sd4MxryPkw3zKyCD4N)
 - [Link to Pseudocode](https://docs.google.com/document/d/1jk0KVBJTgBcEUXJVMCcF9Qd3EeM1F0o22SO2VOLtuo8/edit)
-
-## Technologies Used: 
-JavaScript, HTML, CSS
 
 ## Getting Started:
 
