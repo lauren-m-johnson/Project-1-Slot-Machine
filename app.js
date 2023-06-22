@@ -56,10 +56,11 @@ function init() {
 
 //Adds bet to the bet container
 function renderBet() {
-    if (bet <= bank - 10) {
+    if (bet < bank) {
     bet += 10;
     betAmount.innerText = '$' + bet;
     } else {
+        coinButton.disabled = true;
         return bet;
     }
 }
@@ -145,6 +146,7 @@ function renderBank() {
     if (win === true) {
         bet *= 2;
         bank += bet;
+        coinButton.disabled = false;
     } else if (win === false) {
         bank -= bet;
     } else {
@@ -161,6 +163,7 @@ function handleEmptyBank() {
     if (bank <= 0) {
         messageEl.innerHTML = 'GAME OVER! PLAY AGAIN?';
         hiddenButton.style.visibility = 'visible';
+        placeBet.disabled = true;
         playSound('sounds/gameover.mp3');
     }
 }
@@ -171,6 +174,8 @@ function resetGame() {
     init();
     messageEl.innerHTML = 'PLACE YOUR BET!';
     hiddenButton.style.visibility = 'hidden';
+    placeBet.disabled = false;
+    coinButton.disabled = false;
     bankAmount.innerText = '$' + bank;
     render();
 }
