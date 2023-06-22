@@ -40,7 +40,7 @@ button {
     font-size: 3vmin;
 }
 
-button:hover {
+button:hover:enabled {
     opacity: 0.5;
 }
 
