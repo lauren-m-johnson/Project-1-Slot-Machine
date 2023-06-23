@@ -12,6 +12,14 @@
 
 This browser slot machine game transports you to a world of excitement and the chance to "WIN BIG". With captivating graphics and seamless gameplay, place your bet to align symbols and trigger wins or lose it all. Are you ready to chase your fortune? Play now and spin your way to unimaginable wealth, figuratively of course!
 
+### Features:
+- Clickable buttons!
+- Ability to increase your bet!
+- Immersive sounds and background music!
+- Background music can be toggled off and on!
+- Captivating images!
+- An updating Bank and Bet display!
+
 ### Preview:
 
 ![Screenshot of Slot Machine game when first loaded](images/homescreen.png)
@@ -42,6 +50,8 @@ function renderBank() {
     betAmount.innerText = '$' + bet;
 }
 ```
+This function displays the current bank value. If the user wins by matching three fruits in a row, it doubles the user's bet and add it to the bank. If the user doesn't win, it subtracts the user's bet from the bank. The function ends by displaying the new bank amount and reseting the bet to $10.
+
 ## 🔗 Links
 
 - [Link to Slot Wire Frame](https://whimsical.com/slot-machine-3ni8sd4MxryPkw3zKyCD4N)
